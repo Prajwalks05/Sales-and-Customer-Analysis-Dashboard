@@ -132,5 +132,75 @@ app.get("/api/sales/recent", async (req, res) => {
   }
 });
 
+// --- NEW MULTI-PAGE APIs ---
+
+// 6. Team Page Data
+app.get("/api/team/metrics", async (req, res) => {
+  try {
+    const leaderboard = await Sale.aggregate([
+      {
+        $group: {
+          _id: "$Salesperson",
+          revenue: { $sum: { $toDouble: "$TotalPrice" } },
+          sales: { $sum: 1 },
+        },
+      },
+      { $sort: { revenue: -1 } },
+    ]);
+    const regions = await Sale.aggregate([
+      {
+        $group: {
+          _id: "$Region",
+          revenue: { $sum: { $toDouble: "$TotalPrice" } },
+        },
+      },
+    ]);
+    res.json({ leaderboard, regions });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 7. Customer Page Data
+app.get("/api/customers/metrics", async (req, res) => {
+  try {
+    const types = await Sale.aggregate([
+      {
+        $group: {
+          _id: "$CustomerType",
+          revenue: { $sum: { $toDouble: "$TotalPrice" } },
+        },
+      },
+    ]);
+    const payments = await Sale.aggregate([
+      { $group: { _id: "$PaymentMethod", count: { $sum: 1 } } },
+    ]);
+    res.json({ types, payments });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 8. Logistics Page Data
+app.get("/api/logistics/metrics", async (req, res) => {
+  try {
+    const stores = await Sale.aggregate([
+      { $group: { _id: "$StoreLocation", orders: { $sum: 1 } } },
+    ]);
+    const shipping = await Sale.aggregate([
+      {
+        $group: {
+          _id: { month: { $month: { $toDate: "$OrderDate" } } },
+          avgShipping: { $avg: { $toDouble: "$ShippingCost" } },
+        },
+      },
+      { $sort: { "_id.month": 1 } },
+    ]);
+    res.json({ stores, shipping });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
