@@ -19,8 +19,18 @@ A full-stack, containerized web application designed to provide a centralized, i
 
 ## 📸 Gallery
 
-_Here are some screenshots of the application in action. Replace the placeholder links with your actual image URLs._
-
+<p align="center">
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR3.jpg?raw=true" width="400" alt="Screenshot 1" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR4.jpg?raw=true" width="400" alt="Screenshot 2" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR5.jpg?raw=true" width="400" alt="Screenshot 3" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR11.jpg?raw=true" width="400" alt="Screenshot 4" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR15.jpg?raw=true" width="400" alt="Screenshot 5" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR16.jpg?raw=true" width="400" alt="Screenshot 6" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR17.jpg?raw=true" width="400" alt="Screenshot 7" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR18.jpg?raw=true" width="400" alt="Screenshot 8" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR19.jpg?raw=true" width="400" alt="Screenshot 9" />
+  <img src="https://github.com/Prajwalks05/Sales-and-Customer-Analysis-Dashboard/blob/main/images/ECR20.jpg?raw=true" width="400" alt="Screenshot 10" />
+</p>
 ## 💻 Local Development Setup
 
 To run this project locally, ensure you have **Node.js** and **Docker** installed on your machine.
